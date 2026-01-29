@@ -1,7 +1,7 @@
 <template>
   <section
     id="projects"
-    class="relative min-h-screen flex flex-col justify-center py-10 md:py-14 bg-[#06070a] overflow-hidden"
+    class="relative min-h-screen flex flex-col justify-center py-8 sm:py-10 md:py-14 bg-[#06070a] overflow-hidden"
   >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -13,11 +13,11 @@
       />
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 flex-1 flex flex-col justify-center">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col justify-center">
       <!-- Title -->
-      <div ref="titleRef" class="text-center mb-8 md:mb-10">
+      <div ref="titleRef" class="text-center mb-6 sm:mb-8 md:mb-10">
         <span class="text-sm font-medium text-neon-cyan/80 uppercase tracking-[0.2em]">What I've built</span>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mt-2">
           Projects
         </h2>
       </div>
@@ -25,7 +25,7 @@
       <!-- Grid -->
       <div
         ref="gridRef"
-        class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
       >
         <ProjectCard
           v-for="(project, index) in projects"

@@ -1,7 +1,7 @@
 <template>
   <section
     id="contact"
-    class="relative min-h-screen flex flex-col py-4 md:py-6 bg-[#06070a] overflow-visible last-section"
+    class="relative min-h-screen flex flex-col py-4 md:py-6 pb-24 md:pb-6 bg-[#06070a] overflow-visible last-section"
   >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -13,31 +13,31 @@
       />
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 flex-1 flex flex-col justify-between py-4">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col justify-between py-4">
       <div class="flex-1 flex flex-col justify-center">
         <!-- Title -->
-        <div ref="titleRef" class="text-center mb-6 md:mb-8">
+        <div ref="titleRef" class="text-center mb-5 sm:mb-6 md:mb-8">
           <span class="text-sm font-medium text-neon-cyan/80 uppercase tracking-[0.2em]">Get in touch</span>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mt-2">
             Contact
           </h2>
         </div>
 
         <!-- Content Grid - Compact Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 mb-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-6">
           <!-- Contact Information -->
           <div ref="infoRef" class="space-y-4">
-          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4 md:p-5 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04] h-full">
-            <h3 class="font-display font-semibold text-base text-white mb-3">Let's Connect</h3>
-            <p class="text-white/70 text-xs leading-relaxed mb-4">
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04] h-full">
+            <h3 class="font-display font-semibold text-base text-white mb-2 sm:mb-3">Let's Connect</h3>
+            <p class="text-white/70 text-xs leading-relaxed mb-3 sm:mb-4">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
             
             <!-- Contact Methods -->
-            <div class="space-y-3">
+            <div class="space-y-2 sm:space-y-3">
               <a
-                href="mailto:your.email@example.com"
-                class="flex items-center gap-3 text-white/80 hover:text-neon-cyan transition-colors duration-300 group"
+                href="mailto:isankaerangahtc820@gmail.com"
+                class="flex items-center gap-3 py-2 -mx-1 px-1 rounded-lg text-white/80 hover:text-neon-cyan hover:bg-white/[0.04] transition-colors duration-300 group min-h-[44px]"
               >
                 <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/[0.02] flex items-center justify-center group-hover:border-neon-cyan/30 group-hover:bg-white/[0.04] transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4 text-neon-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
                 href="https://www.linkedin.com/in/isanka-eranga-0155632a3/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-3 text-white/80 hover:text-neon-cyan transition-colors duration-300 group"
+                class="flex items-center gap-3 py-2 -mx-1 px-1 rounded-lg text-white/80 hover:text-neon-cyan hover:bg-white/[0.04] transition-colors duration-300 group min-h-[44px]"
               >
                 <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/[0.02] flex items-center justify-center group-hover:border-neon-cyan/30 group-hover:bg-white/[0.04] transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@
                 href="https://github.com/Sanka43"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-3 text-white/80 hover:text-neon-cyan transition-colors duration-300 group"
+                class="flex items-center gap-3 py-2 -mx-1 px-1 rounded-lg text-white/80 hover:text-neon-cyan hover:bg-white/[0.04] transition-colors duration-300 group min-h-[44px]"
               >
                 <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/[0.02] flex items-center justify-center group-hover:border-neon-cyan/30 group-hover:bg-white/[0.04] transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 24 24">
@@ -88,10 +88,10 @@
           </div>
 
           <!-- Contact Form -->
-          <div ref="formRef" class="rounded-xl border border-white/10 bg-white/[0.02] p-4 md:p-5 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04]">
-          <h3 class="font-display font-semibold text-base text-white mb-3">Send a Message</h3>
+          <div ref="formRef" class="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04]">
+          <h3 class="font-display font-semibold text-base text-white mb-2 sm:mb-3">Send a Message</h3>
           
-          <form @submit.prevent="handleSubmit" class="space-y-3">
+          <form @submit.prevent="handleSubmit" class="space-y-2 sm:space-y-3">
             <div ref="nameFieldRef" class="form-group">
               <label for="name" class="block text-xs font-medium text-white/70 mb-1">Name</label>
               <input
@@ -99,7 +99,7 @@
                 v-model="form.name"
                 type="text"
                 required
-                class="w-full px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300"
+                class="w-full px-3 py-3 sm:py-2 min-h-[44px] sm:min-h-0 rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300"
                 placeholder="Your Name"
               />
             </div>
@@ -111,7 +111,7 @@
                 v-model="form.email"
                 type="email"
                 required
-                class="w-full px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300"
+                class="w-full px-3 py-3 sm:py-2 min-h-[44px] sm:min-h-0 rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300"
                 placeholder="your.email@example.com"
               />
             </div>
@@ -123,7 +123,7 @@
                 v-model="form.message"
                 required
                 rows="3"
-                class="w-full px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300 resize-none"
+                class="w-full px-3 py-3 sm:py-2 min-h-[100px] rounded-lg border border-white/10 bg-white/[0.02] text-white text-sm placeholder-white/30 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-300 resize-none"
                 placeholder="Your Message"
               ></textarea>
             </div>
@@ -132,7 +132,7 @@
               <button
                 type="submit"
                 :disabled="isSubmitting"
-                class="w-full px-5 py-2 bg-gradient-to-r from-neon-cyan to-neon-magenta text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:shadow-neon-cyan/30 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
+                class="w-full px-5 py-3 sm:py-2 min-h-[48px] sm:min-h-0 flex items-center justify-center bg-gradient-to-r from-neon-cyan to-neon-magenta text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:shadow-neon-cyan/30 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
               >
                 <span class="relative z-10 flex items-center justify-center gap-2">
                   <span v-if="!isSubmitting">Send Message</span>
@@ -165,7 +165,7 @@
 
       <!-- Footer Copyright -->
       <footer class="text-center py-3 border-t border-white/10">
-        <p class="text-white/60 text-sm">
+        <p class="text-white/60 text-xs sm:text-sm">
           &copy; 2025 <span class="text-neon-cyan">Isanka Eranga</span>. All rights reserved.
         </p>
       </footer>

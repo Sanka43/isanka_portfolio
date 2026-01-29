@@ -13,17 +13,17 @@
       />
     </div>
 
-    <div class="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-12 flex-1 flex flex-col justify-center pt-4 md:pt-6">
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col justify-center pt-4 md:pt-6">
       <!-- Title -->
-      <div ref="titleRef" class="text-center mb-8 md:mb-10">
+      <div ref="titleRef" class="text-center mb-6 sm:mb-8 md:mb-10">
         <span class="text-sm font-medium text-neon-cyan/80 uppercase tracking-[0.2em]">Where I've worked</span>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mt-2">
           Experience
         </h2>
       </div>
 
       <!-- Experience Cards Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         <div
           v-for="(exp, index) in experiences"
           :key="index"
@@ -31,7 +31,7 @@
           class="experience-item group"
         >
           <article
-            class="relative h-full rounded-xl border border-white/10 bg-white/[0.02] p-6 md:p-8 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04] overflow-hidden"
+            class="relative h-full rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04] overflow-hidden"
           >
             <!-- Left accent bar -->
             <div 
@@ -44,9 +44,9 @@
 
             <div class="relative z-10 flex flex-col h-full">
               <!-- Header -->
-              <div class="flex flex-col gap-3 mb-4">
+              <div class="flex flex-col gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <div>
-                  <h3 class="font-display font-semibold text-xl md:text-2xl text-white group-hover:text-neon-cyan/90 transition-colors duration-300 mb-1">
+                  <h3 class="font-display font-semibold text-lg sm:text-xl md:text-2xl text-white group-hover:text-neon-cyan/90 transition-colors duration-300 mb-1">
                     {{ exp.title }}
                   </h3>
                   <p class="text-neon-cyan font-medium text-sm md:text-base flex items-center gap-2">
@@ -75,11 +75,11 @@
               </div>
 
               <!-- Responsibilities -->
-              <ul class="space-y-2.5 mt-auto">
+              <ul class="space-y-2 sm:space-y-2.5 mt-auto">
                 <li 
                   v-for="(responsibility, idx) in exp.responsibilities"
                   :key="idx"
-                  class="text-white/70 text-sm md:text-base leading-relaxed flex items-start gap-3"
+                  class="text-white/70 text-[13px] sm:text-sm md:text-base leading-relaxed flex items-start gap-2 sm:gap-3"
                 >
                   <span class="text-neon-cyan/80 mt-1.5 flex-shrink-0">▹</span>
                   <span>{{ responsibility }}</span>

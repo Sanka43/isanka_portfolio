@@ -1,7 +1,7 @@
 <template>
   <section
     id="skills"
-    class="relative min-h-screen flex flex-col justify-center py-14 md:py-20 bg-[#06070a] overflow-hidden"
+    class="relative min-h-screen flex flex-col justify-center py-10 sm:py-14 md:py-20 bg-[#06070a] overflow-hidden"
   >
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div class="absolute top-1/3 -right-24 w-80 h-80 bg-neon-cyan/6 rounded-full blur-[100px]" />
@@ -12,37 +12,37 @@
       />
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 flex-1 flex flex-col justify-center">
-      <div ref="titleRef" class="text-center mb-10 md:mb-12">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col justify-center">
+      <div ref="titleRef" class="text-center mb-6 sm:mb-10 md:mb-12">
         <span class="text-sm font-medium text-neon-cyan/80 uppercase tracking-[0.2em]">What I use</span>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mt-2">Skills</h2>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mt-2">Skills</h2>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-8 sm:space-y-12">
         <!-- Technical – marquee rows -->
         <div ref="techRef">
-          <h3 class="font-display font-semibold text-xl text-white text-center mb-8">
+          <h3 class="font-display font-semibold text-base sm:text-lg md:text-xl text-white text-center mb-6 sm:mb-8 px-2">
             Supported Languages & Frameworks
           </h3>
-          <div class="space-y-6">
+          <div class="space-y-4 sm:space-y-6">
             <!-- Row 1: scroll left -->
             <div class="marquee-row overflow-hidden relative">
-              <div class="marquee-track marquee-track-left flex gap-6 w-max">
-                <div class="flex gap-4 shrink-0">
+              <div class="marquee-track marquee-track-left flex gap-4 sm:gap-6 w-max">
+                <div class="flex gap-3 sm:gap-4 shrink-0">
                   <SkillBadge v-for="(s, i) in technicalSkillsRow1" :key="'r1-a-' + i" :skill="s" />
                 </div>
-                <div class="flex gap-4 shrink-0">
+                <div class="flex gap-3 sm:gap-4 shrink-0">
                   <SkillBadge v-for="(s, i) in technicalSkillsRow1" :key="'r1-b-' + i" :skill="s" />
                 </div>
               </div>
             </div>
             <!-- Row 2: scroll right -->
             <div class="marquee-row overflow-hidden relative">
-              <div class="marquee-track marquee-track-right flex gap-6 w-max">
-                <div class="flex gap-4 shrink-0">
+              <div class="marquee-track marquee-track-right flex gap-4 sm:gap-6 w-max">
+                <div class="flex gap-3 sm:gap-4 shrink-0">
                   <SkillBadge v-for="(s, i) in technicalSkillsRow2" :key="'r2-a-' + i" :skill="s" />
                 </div>
-                <div class="flex gap-4 shrink-0">
+                <div class="flex gap-3 sm:gap-4 shrink-0">
                   <SkillBadge v-for="(s, i) in technicalSkillsRow2" :key="'r2-b-' + i" :skill="s" />
                 </div>
               </div>
@@ -52,17 +52,17 @@
 
         <!-- Soft skills -->
         <div ref="softRef">
-          <h3 class="font-display font-semibold text-lg text-white/90 mb-4 flex items-center gap-3">
+          <h3 class="font-display font-semibold text-base sm:text-lg text-white/90 mb-3 sm:mb-4 flex items-center gap-3">
             <span class="w-6 h-px bg-gradient-to-r from-neon-magenta to-neon-cyan" />
             Soft skills
           </h3>
-          <div class="grid md:grid-cols-3 gap-4">
+          <div class="grid md:grid-cols-3 gap-3 sm:gap-4">
             <div
               v-for="(s, i) in softSkills"
               :key="i"
-              class="rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04]"
+              class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 sm:px-5 sm:py-4 transition-all duration-300 hover:border-neon-cyan/30 hover:bg-white/[0.04]"
             >
-              <p class="text-white/80 text-sm leading-relaxed">{{ s }}</p>
+              <p class="text-white/80 text-[13px] sm:text-sm leading-relaxed">{{ s }}</p>
             </div>
           </div>
         </div>
@@ -183,8 +183,33 @@ onMounted(async () => {
   );
 }
 
+@media (max-width: 767px) {
+  .marquee-row {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 32px,
+      black calc(100% - 32px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 32px,
+      black calc(100% - 32px),
+      transparent 100%
+    );
+  }
+}
+
 .marquee-track {
   padding: 0 16px;
+}
+
+@media (max-width: 767px) {
+  .marquee-track {
+    padding: 0 12px;
+  }
 }
 
 @keyframes marquee-left {

@@ -72,10 +72,11 @@ const bgImage = ref(bgImageSrc)
   z-index: 2;
 }
 
-/* Smooth scroll snap on mobile */
-@media (max-width: 768px) {
+/* Mobile: scroll snap + reserve space for bottom nav */
+@media (max-width: 767px) {
   .scroll-container {
     scroll-snap-type: y mandatory;
+    scroll-padding-bottom: 72px;
   }
 }
 

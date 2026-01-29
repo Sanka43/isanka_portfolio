@@ -1,19 +1,42 @@
 <template>
-  <div class="step-list">
-    <button
-      v-for="step in steps"
-      :key="step.id"
-      class="step-item"
-      :class="{ active: activeStep === step.id }"
-      @click="scrollToSection(step.id)"
-    >
-      <span class="step-label">{{ step.label }}</span>
-    </button>
+  <div class="step-list-wrapper">
+    <!-- Desktop: right vertical sidebar (unchanged) -->
+    <div class="step-list step-list-desktop" :aria-hidden="isMobile">
+      <button
+        v-for="step in steps"
+        :key="'d-' + step.id"
+        class="step-item"
+        :class="{ active: activeStep === step.id }"
+        :aria-label="step.label"
+        @click="scrollToSection(step.id)"
+      >
+        <span class="step-label">{{ step.label }}</span>
+      </button>
+    </div>
+
+    <!-- Mobile: fixed bottom nav bar -->
+    <div class="step-list-mobile" :aria-hidden="!isMobile">
+      <div class="step-list-mobile-inner">
+        <button
+          v-for="step in steps"
+          :key="'m-' + step.id"
+          class="step-dot"
+          :class="{ active: activeStep === step.id }"
+          :aria-label="step.label"
+          @click="scrollToSection(step.id)"
+        >
+          <span class="step-dot-indicator" />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useMediaQuery } from '@vueuse/core'
+
+const isMobile = useMediaQuery('(max-width: 767px)')
 
 const props = defineProps({
   scrollRoot: {
@@ -161,7 +184,17 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.step-list {
+.step-list-wrapper {
+  position: static;
+  pointer-events: none;
+}
+
+.step-list-wrapper > * {
+  pointer-events: auto;
+}
+
+/* Desktop: right vertical sidebar — unchanged from original */
+.step-list.step-list-desktop {
   position: fixed;
   right: 24px;
   top: 50%;
@@ -174,7 +207,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.step-item {
+.step-list-desktop .step-item {
   pointer-events: auto;
   padding: 6px 14px;
   background: transparent;
@@ -190,11 +223,11 @@ onUnmounted(() => {
   letter-spacing: 0.02em;
 }
 
-.step-item:hover {
+.step-list-desktop .step-item:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.step-item.active {
+.step-list-desktop .step-item.active {
   color: #00f5ff;
   background: rgba(0, 245, 255, 0.08);
   border-color: rgba(0, 245, 255, 0.2);
@@ -205,27 +238,78 @@ onUnmounted(() => {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .step-list {
-    right: 12px;
-    gap: 6px;
-  }
-
-  .step-item {
-    font-size: 12px;
-    padding: 5px 12px;
+/* Hide desktop nav on mobile */
+@media (max-width: 767px) {
+  .step-list.step-list-desktop {
+    display: none;
   }
 }
 
-@media (max-width: 480px) {
-  .step-list {
-    right: 8px;
-    gap: 4px;
-  }
+/* Mobile: fixed bottom nav bar */
+.step-list-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  pointer-events: none;
+}
 
-  .step-item {
-    font-size: 11px;
-    padding: 4px 10px;
+.step-list-mobile-inner {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.step-dot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.step-dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.2s ease;
+}
+
+.step-dot:hover .step-dot-indicator {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.step-dot.active .step-dot-indicator {
+  background: #00f5ff;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.5);
+  transform: scale(1.35);
+}
+
+@media (max-width: 767px) {
+  .step-list-mobile {
+    display: block;
   }
 }
 </style>

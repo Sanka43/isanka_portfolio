@@ -13,33 +13,33 @@
       />
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
       <!-- Section title -->
-      <div ref="titleRef" class="text-center mb-12 md:mb-16">
+      <div ref="titleRef" class="text-center mb-8 sm:mb-12 md:mb-16">
         <span class="text-sm font-medium text-neon-cyan/80 uppercase tracking-[0.2em]">Who I am</span>
-        <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white mt-2">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mt-2">
           About <span class="text-neon-cyan">Me</span>
         </h2>
       </div>
 
-      <div class="grid lg:grid-cols-[1fr,400px] gap-10 lg:gap-16 items-start">
+      <div class="grid lg:grid-cols-[1fr,400px] gap-8 sm:gap-10 lg:gap-16 items-start">
         <!-- Bio -->
-        <div ref="bioRef" class="space-y-6">
-          <p class="text-white/85 text-base md:text-lg leading-relaxed">
+        <div ref="bioRef" class="space-y-4 sm:space-y-6">
+          <p class="text-white/85 text-[15px] sm:text-base md:text-lg leading-relaxed">
             Enthusiastic <span class="text-neon-cyan font-medium">Front-End Developer</span> with strong technical skills and a creative approach to problem-solving. Passionate about building user-friendly, responsive, and visually appealing web and mobile interfaces that enhance user experience.
           </p>
-          <p class="text-white/85 text-base md:text-lg leading-relaxed">
+          <p class="text-white/85 text-[15px] sm:text-base md:text-lg leading-relaxed">
             Skilled in translating design concepts into clean, efficient code and ensuring cross-platform compatibility. Quick learner with a keen interest in exploring new technologies, frameworks, and tools to improve design quality and performance.
           </p>
-          <p class="text-white/85 text-base md:text-lg leading-relaxed">
+          <p class="text-white/85 text-[15px] sm:text-base md:text-lg leading-relaxed">
             Dedicated to continuous growth, teamwork, and delivering reliable, high-quality solutions that align with modern development standards.
           </p>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/80 text-sm">
+          <div class="flex flex-wrap gap-2 sm:gap-3 pt-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/80 text-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
               English
             </span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/80 text-sm">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/80 text-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-neon-magenta" />
               Sinhala
             </span>
@@ -48,7 +48,7 @@
 
         <!-- Education -->
         <div ref="eduRef" class="lg:sticky lg:top-24">
-          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
             <h3 class="font-display font-semibold text-xl text-white mb-6 flex items-center gap-3">
               <span class="w-8 h-px bg-gradient-to-r from-neon-cyan to-neon-magenta" />
               Education

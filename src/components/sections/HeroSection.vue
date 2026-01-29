@@ -17,13 +17,13 @@
 
     <ParticleBackground :particle-count="600" class="opacity-60" />
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[85vh] py-20">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center min-h-[85vh] py-12 sm:py-16 md:py-20">
         <!-- Left: content -->
         <div class="hero-content text-center lg:text-left order-2 lg:order-1">
           <div
             ref="badgeRef"
-            class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm"
+            class="inline-flex items-center gap-2 mb-4 sm:mb-6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm"
           >
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span class="text-sm font-medium text-white/70 tracking-wide">Available for work</span>
@@ -40,7 +40,7 @@
 
           <div
             ref="heroSubtitleRef"
-            class="mb-5"
+            class="mb-4 sm:mb-5"
           >
             <span class="text-lg sm:text-xl md:text-2xl text-white/90 font-light">
               Software Engineer
@@ -53,15 +53,15 @@
 
           <p
             ref="heroDescriptionRef"
-            class="text-base sm:text-lg text-white/50 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+            class="text-base sm:text-lg text-white/50 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 md:mb-10 leading-relaxed"
           >
             Crafting digital experiences with code, creativity, and cutting-edge technology.
           </p>
 
-          <div ref="heroButtonsRef" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div ref="heroButtonsRef" class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
             <a
               href="#projects"
-              class="group relative px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:ring-offset-2 focus:ring-offset-[#06070a]"
+              class="group relative px-6 sm:px-8 py-3.5 min-h-[48px] sm:min-h-0 flex items-center justify-center rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:ring-offset-2 focus:ring-offset-[#06070a]"
               :style="ctaGradient"
               @click.prevent="scrollToSection('projects')"
             >
@@ -70,7 +70,7 @@
             </a>
             <a
               href="#contact"
-              class="px-8 py-3.5 rounded-xl font-semibold border border-white/20 text-white/90 hover:border-neon-cyan/50 hover:text-neon-cyan hover:bg-white/[0.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 focus:ring-offset-2 focus:ring-offset-[#06070a]"
+              class="px-6 sm:px-8 py-3.5 min-h-[48px] sm:min-h-0 flex items-center justify-center rounded-xl font-semibold border border-white/20 text-white/90 hover:border-neon-cyan/50 hover:text-neon-cyan hover:bg-white/[0.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 focus:ring-offset-2 focus:ring-offset-[#06070a]"
               @click.prevent="scrollToSection('contact')"
             >
               Get In Touch
@@ -91,10 +91,10 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
+    <!-- Scroll indicator (above mobile bottom nav) -->
     <div
       ref="scrollIndicatorRef"
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      class="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
     >
       <span class="text-xs font-medium text-white/40 uppercase tracking-widest">Scroll</span>
       <div class="w-px h-10 bg-gradient-to-b from-white/30 to-transparent rounded-full" />
@@ -115,7 +115,7 @@ const heroButtonsRef = ref(null)
 const scrollIndicatorRef = ref(null)
 
 const titleSize = computed(() => {
-  return 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl'
+  return 'text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-8xl'
 })
 
 const ctaGradient = computed(() => ({
