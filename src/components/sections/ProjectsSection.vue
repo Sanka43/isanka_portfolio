@@ -55,14 +55,14 @@ const projects = [
     description: 'AI-powered code analysis tool that reviews generated code for quality, errors, and performance issues. Helps developers understand, improve, and refine AI-written code through clear insights and practical suggestions.',
     technologies: ['AI', 'Code Analysis', 'TypeScript', 'Web'],
     year: '2026',
-    link: 'https://fixvion.com'
+    // link: 'https://fixvion.com'
   },
   {
     title: 'AIHedgeFund',
     description: 'Educational platform that simulates hedge fund strategies using AI agents, allowing users to analyze stocks and test investment ideas without real money.',
     technologies: ['AI', 'Finance', 'Simulation', 'Web'],
     year: '2026',
-    link: 'https://aihedgefund.com'
+    // link: 'https://aihedgefund.com'
   },
   {
     title: 'Food Stock Management',
