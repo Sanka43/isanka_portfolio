@@ -14,19 +14,20 @@
       </button>
     </div>
 
-    <!-- Mobile: fixed bottom nav bar -->
+    <!-- Mobile: fixed bottom nav bar with labels -->
     <div class="step-list-mobile" :aria-hidden="!isMobile">
       <div class="step-list-mobile-inner">
-        <button
-          v-for="step in steps"
-          :key="'m-' + step.id"
-          class="step-dot"
-          :class="{ active: activeStep === step.id }"
-          :aria-label="step.label"
-          @click="scrollToSection(step.id)"
-        >
-          <span class="step-dot-indicator" />
-        </button>
+        <div class="step-list-mobile-scroll">
+          <button
+            v-for="step in steps"
+            :key="'m-' + step.id"
+            class="step-mobile-item"
+            :class="{ active: activeStep === step.id }"
+            @click="scrollToSection(step.id)"
+          >
+            <span class="step-mobile-label">{{ step.label }}</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -261,50 +262,62 @@ onUnmounted(() => {
 
 .step-list-mobile-inner {
   pointer-events: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 16px;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(12px);
+  padding: 10px 12px 10px 16px;
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
 }
 
-.step-dot {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+.step-list-mobile-scroll {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: none;
+  gap: 6px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.step-list-mobile-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.step-mobile-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 9999px;
   background: transparent;
-  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
 }
 
-.step-dot-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  transition: all 0.2s ease;
+.step-mobile-item:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.step-dot:hover .step-dot-indicator {
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(1.2);
+.step-mobile-item.active {
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.1);
+  border-color: rgba(0, 245, 255, 0.25);
+  box-shadow: 0 0 16px -2px rgba(0, 245, 255, 0.2);
 }
 
-.step-dot.active .step-dot-indicator {
-  background: #00f5ff;
-  box-shadow: 0 0 12px rgba(0, 245, 255, 0.5);
-  transform: scale(1.35);
+.step-mobile-label {
+  font-family: inherit;
 }
 
 @media (max-width: 767px) {

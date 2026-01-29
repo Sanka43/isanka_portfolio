@@ -22,8 +22,8 @@
         </h2>
       </div>
 
-      <!-- Experience Cards Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+      <!-- Experience Cards: horizontal scroll on mobile, grid on desktop -->
+      <div class="experience-cards">
         <div
           v-for="(exp, index) in experiences"
           :key="index"
@@ -202,5 +202,68 @@ onMounted(async () => {
 <style scoped>
 .experience-item {
   position: relative;
+}
+
+/* Mobile: horizontal scrollable row, swipe left/right */
+.experience-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  gap: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.experience-cards::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .experience-cards {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    overflow: visible;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+.experience-item {
+  flex-shrink: 0;
+  width: min(88vw, 360px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (min-width: 1024px) {
+  .experience-item {
+    width: auto;
+    flex-shrink: unset;
+    scroll-snap-align: none;
+    scroll-snap-stop: unset;
+  }
 }
 </style>
